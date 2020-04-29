@@ -1,0 +1,25 @@
+settings:
+  legacy:
+    force: false
+    interval: 0s
+schema:
+- name: app
+  path: .
+  commands:
+    install:
+      status: true
+      method: go build -x -o /opt/app
+    run:
+      status: true
+      method: /opt/app
+  watcher:
+    extensions:
+    - go
+    - html
+    - yaml
+    paths:
+    - /
+    ignored_paths:
+    - .git
+    - .realize
+    - vendor
